@@ -1,0 +1,18 @@
+{
+  "name": "testserver",
+  "version": "1.0.0",
+  "description": "http request test",
+  "main": "TestServer.js",
+  "scripts": {
+    "test": "node TestServer.js"
+  },
+  "author": "HJiang",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.2.0",
+    "koa-route": "^3.2.0"
+  }
+}
