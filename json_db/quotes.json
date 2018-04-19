@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "id": "0",
+            "cn": "每日佳句0",
+            "en": "daily quote 0",
+            "pic": "assets/img/wordlogo.jpg"
+        },
+        {
+            "id": "1",
+            "cn": "每日佳句1",
+            "en": "daily quote 1",
+            "pic": "assets/img/wordlogo.jpg"
+        },
+        {
+            "id": "2",
+            "cn": "每日佳句2",
+            "en": "daily quote 2",
+            "pic": "assets/img/wordlogo.jpg"
+        },
+        {
+            "id": "3",
+            "cn": "每日佳句3",
+            "en": "daily quote 3",
+            "pic": "assets/img/wordlogo.jpg"
+        },
+        {
+            "id": "4",
+            "cn": "每日佳句4",
+            "en": "daily quote 4",
+            "pic": "assets/img/wordlogo.jpg"
+        },
+        {
+            "id": "5",
+            "cn": "每日佳句5",
+            "en": "daily quote 5",
+            "pic": "assets/img/wordlogo.jpg"
+        },
+        {
+            "id": "6",
+            "cn": "每日佳句6",
+            "en": "daily quote 6",
+            "pic": "assets/img/wordlogo.jpg"
+        }
+    ]
+}

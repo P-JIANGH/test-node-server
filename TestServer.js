@@ -9,7 +9,7 @@ import logger from 'koa-logger';
 import route from 'koa-route';
 const app = new Koa();
 
-const dbUrl = '/json_db';
+const dbUrl = './json_db';
 const getTable = tableName=> (JSON.parse(fs.readFileSync(`${dbUrl}/${tableName}.json`)));
 
 app.use(cors());
@@ -18,6 +18,7 @@ app.use(logger());
 
 const db_states = getTable('states').data;
 const db_heroes = getTable('heroes').data;
+const db_quotes = getTable('quotes').data;
 
 const main = ctx => {
     ctx.response.type = "json"
@@ -34,6 +35,7 @@ app.use(route.post('/savehero', ctx => {
     const newHero = Object.assign(oldHero, hero);
     ctx.response.body = newHero;
 }));
+app.use(route.get('/quotes/:id', (ctx, id) => ctx.response.body = db_quotes.find(h => h.id === id)));
 
 console.log('Listening on port 3000!');
 app.listen(3000);
