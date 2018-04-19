@@ -1,14 +1,18 @@
 'use strict'
 
-const Koa = require('koa');
-const cors = require('@koa/cors');
-const parser = require('koa-bodyparser');
-const logger = require('koa-logger');
-const _ = require('koa-route');
+import fs from 'fs';
+
+import Koa from 'koa';
+import cors from '@koa/cors';
+import bodyParse from 'koa-bodyparser';
+import logger from 'koa-logger';
+import route from 'koa-route';
 const app = new Koa();
 
+// const 
+
 app.use(cors());
-app.use(parser());
+app.use(bodyParse());
 app.use(logger());
 
 const db_states = ['CA', 'MD', 'OH', 'VA'];
@@ -40,11 +44,11 @@ const main = ctx => {
     ctx.response.body = { text: "Hello World!!"};
 }
 
-app.use(_.get('/', main));
-app.use(_.get('/hero/:id', (ctx, id) => ctx.response.body = db_heroes.find(h => h.id === id)));
-app.use(_.get('/states', ctx => ctx.response.body = db_states));
-app.use(_.get('/heroes', ctx => ctx.response.body = db_heroes));
-app.use(_.post('/savehero', ctx => {
+app.use(route.get('/', main));
+app.use(route.get('/hero/:id', (ctx, id) => ctx.response.body = db_heroes.find(h => h.id === id)));
+app.use(route.get('/states', ctx => ctx.response.body = db_states));
+app.use(route.get('/heroes', ctx => ctx.response.body = db_heroes));
+app.use(route.post('/savehero', ctx => {
     let hero = ctx.request.body;
     const oldHero = db_heroes.find(h => h.id === hero.id);
     const newHero = Object.assign(oldHero, hero);
