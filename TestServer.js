@@ -9,35 +9,15 @@ import logger from 'koa-logger';
 import route from 'koa-route';
 const app = new Koa();
 
-// const 
+const dbUrl = '/json_db';
+const getTable = tableName=> (JSON.parse(fs.readFileSync(`${dbUrl}/${tableName}.json`)));
 
 app.use(cors());
 app.use(bodyParse());
 app.use(logger());
 
-const db_states = ['CA', 'MD', 'OH', 'VA'];
-const db_heroes = [
-    {
-        id: 1,
-        name: 'Whirlwind',
-        addresses: [
-            {street: '123 Main',  city: 'Anywhere', state: 'CA',  zip: '94801'},
-            {street: '456 Maple', city: 'Somewhere', state: 'VA', zip: '23226'},
-        ]
-    },
-    {
-        id: 2,
-        name: 'Bombastic',
-        addresses: [
-            {street: '789 Elm',  city: 'Smallville', state: 'OH',  zip: '04501'},
-        ]
-    },
-    {
-        id: 3,
-        name: 'Magneta',
-        addresses: [ ]
-    },
-];
+const db_states = getTable('states').data;
+const db_heroes = getTable('heroes').data;
 
 const main = ctx => {
     ctx.response.type = "json"
